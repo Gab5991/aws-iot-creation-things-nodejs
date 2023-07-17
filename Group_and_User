@@ -4,3 +4,32 @@ aws iam create-group --group-name Monitoring
 aws iam create-user --user-name User1
 // Assign the User to the Group
 aws iam add-user-to-group --user-name User1 --group-name MyIamGroup
+
+
+
+
+// add new user
+
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_iam_user" "new_user" {
+  name = "User1"  
+
+  tags = {
+    Name = "New User"
+  }
+}
+
+resource "aws_iam_access_key" "new_user_access_key" {
+  user = aws_iam_user.new_user.name
+}
+
+output "user_access_key" {
+  value = aws_iam_access_key.new_user_access_key.id
+}
+
+output "user_secret_key" {
+  value = aws_iam_access_key.new_user_access_key.secret
+}
