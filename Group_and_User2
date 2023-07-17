@@ -1,4 +1,4 @@
-// Create a new Group with policies atttached to it
+  // Create a new Group with policies atttached to it
 
 provider "aws" {
   region = var.region
