@@ -33,3 +33,17 @@ output "user_access_key" {
 output "user_secret_key" {
   value = aws_iam_access_key.new_user_access_key.secret
 }
+
+// add a new group with Terraform
+
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_iam_group" "new_group" {
+  name = "Monitoring"
+
+  tags = {
+    Name = "New Group"
+  }
+}
