@@ -1,0 +1,6 @@
+// Create a new Group
+aws iam create-group --group-name Monitoring
+// Create a new User
+
+// Assign the User to the Group
+aws iam add-user-to-group --user-name User1 --group-name MyIamGroup
