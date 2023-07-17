@@ -8,7 +8,7 @@ aws iam add-user-to-group --user-name User1 --group-name MyIamGroup
 
 
 
-// add new user
+// add new user with Terraform
 
 provider "aws" {
   region = var.region
